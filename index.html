@@ -241,6 +241,121 @@
       .wallet-connect-icon:hover {
          background-color: rgba(255, 0, 0, .5);
       }
+
+      .pages {
+          align-items: center;
+          justify-items: center;
+          text-align: center;
+          color: white;
+          background-color: #080706;
+      }
+      
+      .pages section {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          padding: 16px;
+          background-color: #f9f9f9;
+          padding: 13px;
+          margin: 10px;
+          width: 90%;
+          text-align: left;
+      }
+      
+      .pages button {
+          padding: 10px 15px;
+          background-color: white;
+          color: black;
+          border: 2px solid black;
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin: 15px;
+          /* Space between buttons */
+      }
+      
+      .pages button:hover {
+          background-color: blue;
+          color: white;
+      }
+      
+      .pages button:active {
+          background-color: #333;
+          /* Dark gray on click */
+          color: white;
+      }
+      
+      button:disabled,
+      button[disabled] {
+          border: 1px solid #999999;
+          background-color: green;
+          color: white;
+      }
+      
+      .pages h1 {
+          margin: 20px;
+          font-size: 30px;
+          font-weight: 600;
+      }
+      
+      .pages h2 {
+          padding-bottom: 6px;
+      }
+      
+      .pages ul {
+          text-align: left;
+          counter-reset: list;
+          border-left: 2px solid lightblue;
+          margin: 1em;
+          padding: 0;
+      }
+      
+      .pages ul li {
+         display:inline-flex;
+          list-style: none;
+          margin: 0 0 0.75em 0;
+          padding: 0;
+          font-size: large;
+          font-weight: 500;
+      }
+      
+      .pages ul li:before {
+          display: inline-block;
+          width: 1.3em;
+          height: 1.3em;
+          margin: 0 0.5em 0 -0.65em;
+          border-radius: 50%;
+          content: '-';
+          text-align: center;
+          font-size: 1.2em;
+          font-weight: bold;
+          background: lightblue;
+          counter-increment: list;
+      }
+      
+      .pages select {
+         color:black;
+         display:inline-flex;
+      }
+      
+      .pages label {
+         display:inline-flex;
+      }
+      
+      #TransactionLoader {
+          animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+          0% {
+              transform: rotate(0deg);
+          }
+      
+          100% {
+              transform: rotate(360deg);
+          }
+      }
    </style>
 </head>
 
@@ -263,7 +378,7 @@
                src="./Brand/static/resources/TwitterX.svg" width="25" alt="" /></a>
       </div>
       <div style="float:right;margin-right:10px;">
-         <a href="#" class="social-link title wallet-connect" onclick="ShowWalletConnectDialog();">Wallet Connect \-
+         <a href="#" class="social-link title wallet-connect" onclick="ShowSupportTransactionDialog();">Support Art \-
          </a>
       </div>
    </div>
@@ -1399,6 +1514,27 @@
          <h2 class="heading larger">~~Airing Arts Everywhere</h2>
       </div>
    </div>
+
+   <div id="SupportTransactionDialog"
+        style="border-radius: 10px; width:30%; position:absolute; z-index:90;left:35%; background-color: #080706; box-shadow: 0 5px 20px 0 rgba(0, 0, 255, 0.5);">
+            <div id="root" style="margin-top:20px;"></div>
+            <div class='button-group' style="margin-left:auto; margin-right: auto; margin-bottom:30px; margin-top:20px; text-align: center;">
+                <button class='social-link title wallet-connect' style="margin-left: auto;margin-right:auto;"
+                    onclick="CloseSupportTransactionDialog();">Done</button>
+            </div>
+    </div>
+
+
+    <script>
+        document.getElementById("SupportTransactionDialog").style.display = "none";
+        function ShowSupportTransactionDialog() {
+            document.getElementById("SupportTransactionDialog").style.top = (window.scrollY+100)+"px";
+            document.getElementById("SupportTransactionDialog").style.display = "block";
+        }
+        function CloseSupportTransactionDialog() {
+            document.getElementById("SupportTransactionDialog").style.display = "none";
+        }
+    </script>
 </body>
 
  <style>
